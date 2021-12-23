@@ -11,7 +11,7 @@ import SwiftUI
 struct FinanceApp_ReplicateApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WelcomeView()
         }
     }
 }

@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
+//  WelcomeView.swift
 //  FinanceApp-Replicate
 //
-//  Created by Abdulkerim Sahin on 21.12.2021.
+//  Created by Abdulkerim Sahin on 23.12.2021.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct WelcomeView: View {
     @State private var size: CGSize = .zero
     
     var body: some View {
@@ -170,8 +170,8 @@ struct LineShape: Shape {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        WelcomeView()
     }
 }
