@@ -55,12 +55,11 @@
 		E99AF27727725C2800A1E7E9 /* FinanceApp-Replicate */ = {
 			isa = PBXGroup;
 			children = (
-				E99AF27827725C2800A1E7E9 /* FinanceApp_ReplicateApp.swift */,
-				E99AF27A27725C2800A1E7E9 /* ContentView.swift */,
-				E9E8D8F22774EA5D00989A6F /* View+ReadSize.swift */,
-				E99AF27C27725C2F00A1E7E9 /* Assets.xcassets */,
+				E9E8D8F527750A7E00989A6F /* App */,
+				E9E8D8F427750A7000989A6F /* Extensions */,
 				E99AF28627725DC700A1E7E9 /* LaunchScreen.storyboard */,
 				E99AF27E27725C2F00A1E7E9 /* Preview Content */,
+				E9E8D8F627750B7300989A6F /* Resources */,
 			);
 			path = "FinanceApp-Replicate";
 			sourceTree = "<group>";
@@ -71,6 +70,39 @@
 				E99AF27F27725C2F00A1E7E9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E9E8D8F427750A7000989A6F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E9E8D8F22774EA5D00989A6F /* View+ReadSize.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E9E8D8F527750A7E00989A6F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E99AF27827725C2800A1E7E9 /* FinanceApp_ReplicateApp.swift */,
+				E9E8D8F727750BA700989A6F /* Screens */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E9E8D8F627750B7300989A6F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E99AF27C27725C2F00A1E7E9 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E9E8D8F727750BA700989A6F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E99AF27A27725C2800A1E7E9 /* ContentView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
