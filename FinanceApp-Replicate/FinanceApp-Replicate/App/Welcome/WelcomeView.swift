@@ -9,32 +9,39 @@ import SwiftUI
 
 struct WelcomeView: View {
     @State private var size: CGSize = .zero
+    @State private var isButtonActive = false
     
     var body: some View {
-        VStack(alignment: .leading) {
-            ZStack(alignment: .center) {
-                LinearGradient(gradient: Gradient(stops: [
-                    .init(color: Color("GradientStart"), location: 0.4),
-                    .init(color: Color("GradientEnd"), location: 0.7)]), startPoint: .leading, endPoint: .trailing)
-                    .mask {
-                        LineShape()
-                            .stroke(.white, style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round))
-                    }
+        NavigationView {
+            VStack(alignment: .leading) {
+                ZStack(alignment: .center) {
+                    LinearGradient(gradient: Gradient(stops: [
+                        .init(color: Color("GradientStart"), location: 0.4),
+                        .init(color: Color("GradientEnd"), location: 0.7)]), startPoint: .leading, endPoint: .trailing)
+                        .mask {
+                            LineShape()
+                                .stroke(.white, style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round))
+                        }
+                    
+                    CardView(size: $size)
+                        .padding(.horizontal, 30)
+                }
+                .ignoresSafeArea(.all, edges: .top)
+                .padding(.bottom, 60)
                 
-                CardView(size: $size)
-                    .frame(height: size.height * 0.28)
-                    .padding(.horizontal, 30)
+                bodyContent
+                
+                bottomButton
+                
+                NavigationLink("",
+                               destination: HomeView(),
+                               isActive: $isButtonActive)
             }
-            .ignoresSafeArea(.all, edges: .top)
-            .padding(.bottom, 60)
-            
-            bodyContent
-            
-            bottomButton
-        }
-        .background {
-            Color("Background")
-                .ignoresSafeArea()
+            .background {
+                Color("Background")
+                    .ignoresSafeArea()
+            }
+            .navigationBarHidden(true)
         }
         .readSize { size in
             self.size = size
@@ -62,7 +69,7 @@ struct WelcomeView: View {
     
     @ViewBuilder private var bottomButton: some View {
         Button {
-            
+            isButtonActive.toggle()
         } label: {
             Text("Get Started")
                 .foregroundColor(Color("Background"))
@@ -112,6 +119,7 @@ struct CardView: View {
                 .stroke(.white, lineWidth: 6)
                 .background(Color("Background"))
         }
+        .frame(height: size.height * 0.28)
     }
 }
 
