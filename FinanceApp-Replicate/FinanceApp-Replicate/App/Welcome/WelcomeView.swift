@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     @State private var size: CGSize = .zero
-    @State private var isButtonActive = false
+    @State private var isPresented = false
     
     var body: some View {
         NavigationView {
@@ -34,8 +34,8 @@ struct WelcomeView: View {
                 bottomButton
                 
                 NavigationLink("",
-                               destination: HomeView(),
-                               isActive: $isButtonActive)
+                               destination: HomeView(isPresented: $isPresented),
+                               isActive: $isPresented)
             }
             .background {
                 Color("Background")
@@ -69,7 +69,7 @@ struct WelcomeView: View {
     
     @ViewBuilder private var bottomButton: some View {
         Button {
-            isButtonActive.toggle()
+            isPresented.toggle()
         } label: {
             Text("Get Started")
                 .foregroundColor(Color("Background"))

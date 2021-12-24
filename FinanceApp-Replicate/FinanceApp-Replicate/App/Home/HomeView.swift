@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var size: CGSize = .zero
+    @Binding var isPresented: Bool
     
     var body: some View {
         VStack {
