@@ -34,7 +34,7 @@ struct WelcomeView: View {
                 bottomButton
                 
                 NavigationLink("",
-                               destination: HomeView(isPresented: $isPresented),
+                               destination: Tabbar(isPresented: $isPresented),
                                isActive: $isPresented)
             }
             .background {

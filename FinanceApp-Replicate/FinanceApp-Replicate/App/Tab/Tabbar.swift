@@ -8,32 +8,63 @@
 import SwiftUI
 
 struct Tabbar: View {
-    @State private var selectedTag = 0
-    @State private var isPresented = false
+    @State private var selectedTag: Tab = .Home
+    @Binding public var isPresented: Bool
     
-    var body: some View {
-        TabView(selection: $selectedTag) {
-            ForEach(0..<5) { index in
-                HomeView(isPresented: $isPresented)
-                    .tabItem {
-                        tabImage(for: index)
-                    }
-                    .tag(index)
-            }
-        }
+    init(isPresented: Binding<Bool>) {
+        _isPresented = isPresented
+        
+        UITabBar.appearance().isHidden = true
     }
     
-    private func tabImage(for index: Int) -> Image {
-        let tabImages = [Image("Home"), Image("Activity"), Image("Scan"), Image("Wallet"), Image("Paper")]
+    var body: some View {
+        VStack(spacing: 0) {
+            TabView(selection: $selectedTag) {
+                ForEach(Tab.allCases, id: \.self) { tab in
+                    HomeView(isPresented: $isPresented)
+                        .tag(tab)
+                }
+            }
+            
+            Spacer()
+            HStack(spacing: 0) {
+                ForEach(Tab.allCases, id: \.self) { tab in
+                    Button {
+                        selectedTag = tab
+                    } label: {
+                        Image(tab.imageName(selected: selectedTag))
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.white)
+                    }
+                    .background {
+                        Circle()
+                            .fill(tab == .Scan ? .black : .clear)
+                    }
+                }
+            }
+        }
+        .background(.clear)
+    }
+    
+    enum Tab: String, CaseIterable {
+        case Home = "Home"
+        case Activity = "Activity"
+        case Scan = "Scan"
+        case Wallet = "Wallet"
+        case Paper = "Paper"
         
-        let selectedTabImages = [Image("Home_Selected"), Image("Activity_Selected"), Image("Scan"), Image("Wallet_Selected"), Image("Paper_Selected")]
-        
-        return selectedTag == index ? selectedTabImages[index] : tabImages[index]
+        func imageName(selected: Tab) -> String {
+            if selected == .Scan {
+                return self.rawValue
+            }
+            return self.rawValue + "\(selected == self ? "_Selected" : "")"
+        }
     }
 }
 
 struct TabView_Previews: PreviewProvider {
     static var previews: some View {
-        Tabbar()
+        Tabbar(isPresented: .constant(false))
     }
 }

@@ -61,7 +61,6 @@
 			children = (
 				E9E8D8F527750A7E00989A6F /* App */,
 				E9E8D8F427750A7000989A6F /* Extensions */,
-				E99AF28627725DC700A1E7E9 /* LaunchScreen.storyboard */,
 				E99AF27E27725C2F00A1E7E9 /* Preview Content */,
 				E9E8D8F627750B7300989A6F /* Resources */,
 			);
@@ -106,6 +105,7 @@
 		E9E8D8F627750B7300989A6F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E99AF28627725DC700A1E7E9 /* LaunchScreen.storyboard */,
 				E99AF27C27725C2F00A1E7E9 /* Assets.xcassets */,
 			);
 			path = Resources;
